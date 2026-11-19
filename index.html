@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>成都巨量视界 · 学员案例合集</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:#0d0d14; color:#fff; max-width:520px; margin:0 auto;
+    padding-bottom:60px;
+  }
+  /* ---------- 头部 ---------- */
+  header {
+    position:relative; text-align:center; padding:34px 20px 26px;
+    background:linear-gradient(160deg,#1a0b2e 0%,#3d0f3a 45%,#6e1423 100%);
+    overflow:hidden;
+  }
+  header::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 80% 10%,rgba(255,60,100,.35),transparent 55%),
+               radial-gradient(circle at 15% 90%,rgba(80,60,255,.3),transparent 50%);
+    pointer-events:none;
+  }
+  .logo {
+    width:84px; height:84px; border-radius:22px; object-fit:cover;
+    box-shadow:0 8px 30px rgba(0,0,0,.5); position:relative; z-index:1;
+  }
+  header h1 { font-size:24px; margin-top:14px; letter-spacing:2px; position:relative; z-index:1; }
+  header p { font-size:13px; color:rgba(255,255,255,.65); margin-top:8px; position:relative; z-index:1; }
+  .stats-bar {
+    display:flex; justify-content:center; gap:26px; margin-top:18px; position:relative; z-index:1;
+  }
+  .stats-bar div { text-align:center; }
+  .stats-bar b { font-size:19px; color:#ffd54d; display:block; }
+  .stats-bar span { font-size:11px; color:rgba(255,255,255,.6); }
+
+  /* ---------- 吸顶导航 ---------- */
+  nav {
+    position:sticky; top:0; z-index:50; display:flex; gap:8px;
+    padding:10px 14px; background:rgba(13,13,20,.92); backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  nav a {
+    flex:1; text-align:center; font-size:13px; color:rgba(255,255,255,.75);
+    text-decoration:none; padding:8px 0; border-radius:20px;
+    background:rgba(255,255,255,.06);
+  }
+  nav a.hot { background:linear-gradient(90deg,#ff2d55,#ff7a18); color:#fff; font-weight:600; }
+
+  /* ---------- 分区标题 ---------- */
+  .sec-title {
+    display:flex; align-items:center; gap:10px;
+    padding:30px 18px 6px;
+  }
+  .sec-title .bar { width:5px; height:22px; border-radius:3px; background:linear-gradient(180deg,#ff2d55,#ff7a18); }
+  .sec-title h2 { font-size:19px; letter-spacing:1px; }
+  .sec-sub { padding:2px 18px 14px; font-size:12px; color:rgba(255,255,255,.45); }
+
+  /* ---------- 竖图双列瀑布感网格 ---------- */
+  .grid2 {
+    display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:0 14px;
+  }
+  .card {
+    border-radius:14px; overflow:hidden; background:#191924;
+    box-shadow:0 4px 16px rgba(0,0,0,.35); position:relative;
+  }
+  .card img, .card video { width:100%; display:block; }
+  .grid2 .card img { aspect-ratio:9/16; object-fit:cover; object-position:top; }
+
+  /* ---------- 横图整行 ---------- */
+  .wide { padding:0 14px; display:flex; flex-direction:column; gap:10px; margin-top:10px; }
+  .wide .card img { width:100%; }
+
+  /* ---------- 数据区：浅色截图用浅色卡 ---------- */
+  .data-sec .card { background:#f5f6fa; }
+
+  /* ---------- 视频 ---------- */
+  .video-wrap { padding:0 14px 14px; }
+  .video-wrap video { width:100%; border-radius:14px; display:block; box-shadow:0 4px 16px rgba(0,0,0,.35); }
+
+  /* ---------- 灯箱 ---------- */
+  #lightbox {
+    position:fixed; inset:0; z-index:100; background:rgba(0,0,0,.94);
+    display:none; align-items:center; justify-content:center; flex-direction:column;
+  }
+  #lightbox.open { display:flex; }
+  #lightbox img { max-width:96vw; max-height:86vh; border-radius:8px; }
+  #lb-close {
+    position:absolute; top:calc(env(safe-area-inset-top) + 14px); right:16px;
+    width:38px; height:38px; border-radius:50%; border:none;
+    background:rgba(255,255,255,.15); color:#fff; font-size:20px;
+  }
+  footer { text-align:center; padding:34px 0 10px; font-size:12px; color:rgba(255,255,255,.35); }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="assets/微信图片_20261118115828_1031_30.jpg" alt="巨量视界">
+  <h1>成都巨量视界</h1>
+  <p>学员案例合集 · 实战成果展示</p>
+  <div class="stats-bar">
+    <div><b id="c-photo">0</b><span>精彩瞬间</span></div>
+    <div><b id="c-fb">0</b><span>学员反馈</span></div>
+    <div><b id="c-data">0</b><span>数据战报</span></div>
+  </div>
+</header>
+
+<nav>
+  <a href="#sec-photo" class="hot">🔥 直播风采</a>
+  <a href="#sec-fb">💬 学员反馈</a>
+  <a href="#sec-data">📊 数据战报</a>
+</nav>
+
+<!-- ① 颜色鲜艳的直播 / 视频画面 -->
+<section id="sec-photo">
+  <div class="sec-title"><span class="bar"></span><h2>学员直播风采</h2></div>
+  <p class="sec-sub">直播间高光瞬间 · 短视频实拍画面</p>
+  <div class="video-wrap">
+    <video src="assets/98ca6688c80f9aa4f2cdc41dcb77086f.mp4" controls playsinline preload="metadata"></video>
+  </div>
+  <div class="grid2" id="g-photo"></div>
+  <div class="wide" id="w-photo"></div>
+</section>
+
+<!-- ② 学员聊天反馈 -->
+<section id="sec-fb">
+  <div class="sec-title"><span class="bar"></span><h2>学员真实反馈</h2></div>
+  <p class="sec-sub">来自学员群的一对一实战反馈</p>
+  <div class="grid2" id="g-fb"></div>
+</section>
+
+<!-- ③ 后台数据 / 直播数据 -->
+<section id="sec-data" class="data-sec">
+  <div class="sec-title"><span class="bar"></span><h2>后台数据战报</h2></div>
+  <p class="sec-sub">直播大屏 · 巨量后台真实数据截图</p>
+  <div class="grid2" id="g-data"></div>
+  <div class="wide" id="w-data"></div>
+</section>
+
+<footer>成都巨量视界 · 学员案例合集</footer>
+
+<div id="lightbox"><button id="lb-close">✕</button><img id="lb-img" alt=""></div>
+
+<script>
+// 竖版图（双列）
+const photoPortrait = [
+  "微信图片_20261118110729_1194_9.jpg", // 双11专场直播
+  "微信图片_20261118112341_1208_9.jpg", // 三人直播间
+  "微信图片_20261118211705_1037_30.jpg",
+  "微信图片_20261118211704_1036_30.jpg",
+  "微信图片_20261118110425_1193_9.jpg",
+  "微信图片_20261118211709_1039_30.jpg",
+  "微信图片_20261118211605_1035_30.jpg",
+  "微信图片_20261118211706_1038_30.jpg",
+  "539ff2f9904064a5c7529de6ad0804eb.jpg",
+  "effaedacb3a3b1915b091f9361aea507.png"
+];
+// 横版图（整行）
+const photoWide = [
+  "微信图片_20261118113412_1222_9.png", // 直播封面墙
+  "微信图片_20261118113437_1223_9.png"  // 视频封面墙
+];
+// 学员反馈（聊天截图）
+const feedback = [
+  "1c4d3b36410ebe971e8f40c7537f47cf.jpg",
+  "89a9046e29f31bba4a9cf16145958655.jpg",
+  "7d9199192cf41524a3ec4200819bc634.jpg",
+  "微信图片_20261118110745_1195_9.jpg",
+  "微信图片_20261118113339_1221_9.png"
+];
+// 后台数据：竖版截图（双列）
+const dataPortrait = [
+  "182076744e5e471ddb849d925bbcf66c.jpg",
+  "1f0edc2b35edff48876fc11250cbd0d5.png",
+  "45555cfab17455e687ee2934aa85ef19.jpg",
+  "74a3580d5dc520c0641380ff3e52a067.jpg",
+  "e2d49479ec7c74958917fc83c9b7146b.jpg",
+  "微信图片_20261118111249_1196_9.jpg"
+];
+// 后台数据：横版截图 & 大屏实拍（整行）
+const dataWide = [
+  "2dec814e605110511dc127dcd6d45f0f.jpg",
+  "9d0aa36190a68706a2237cbe953983d9.png",
+  "微信图片_20261118113025_1217_9.png",
+  "微信图片_20261118113250_1220_9.png",
+  "微信图片_20261118113051_1218_9.png",
+  "微信图片_20261118113215_1219_9.png",
+  "feb1249c32a56a198c18e1f7c485384f.jpg",
+  "80920bfebc8af246268884a1c2e53cf5.jpg",
+  "微信图片_20260919205656_707_460.png",
+  "a4684a9cf89a00f05b5d1081c4d452fc.jpg",
+  "e6a7210e40e20a73d99f1eb72ecfd2ed.jpg",
+  "微信图片_20260825134201_46_460.png",
+  "微信图片_20260825134201_47_460.png",
+  "微信图片_20260828103216_78_460.png",
+  "微信图片_20261118221905.jpg",
+  "微信图片_20261118221919.jpg",
+  "微信图片_20261118221924.jpg",
+  "微信图片_20261118221931.jpg",
+  "微信图片_20261118221937.jpg"
+];
+
+function render(list, el) {
+  const box = document.getElementById(el);
+  for (const f of list) {
+    const d = document.createElement('div');
+    d.className = 'card';
+    const img = document.createElement('img');
+    img.src = 'assets/' + encodeURIComponent(f);
+    img.loading = 'lazy';
+    img.alt = '学员案例';
+    img.onclick = () => openLB(img.src);
+    d.appendChild(img);
+    box.appendChild(d);
+  }
+}
+render(photoPortrait, 'g-photo');
+render(photoWide, 'w-photo');
+render(feedback, 'g-fb');
+render(dataPortrait, 'g-data');
+render(dataWide, 'w-data');
+
+document.getElementById('c-photo').textContent = photoPortrait.length + photoWide.length + 1;
+document.getElementById('c-fb').textContent = feedback.length;
+document.getElementById('c-data').textContent = dataPortrait.length + dataWide.length;
+
+const lb = document.getElementById('lightbox');
+function openLB(src){ document.getElementById('lb-img').src = src; lb.classList.add('open'); }
+lb.onclick = () => lb.classList.remove('open');
+</script>
+</body>
+</html>
