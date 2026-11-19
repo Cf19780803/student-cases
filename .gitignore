@@ -1,2 +1,4 @@
 cloudflared.exe
 node_modules/
+tunnel.log
+server.log
