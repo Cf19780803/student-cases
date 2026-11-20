@@ -78,7 +78,22 @@
   .data-sec .card { background:#f5f6fa; }
 
   /* ---------- 毕业照：私教课特写 ---------- */
-  .grad-sec .card { background:#1c1526; }
+  .grad-sec {
+    margin-top:14px; padding-bottom:10px;
+    border-top:1px solid rgba(255,213,77,.28);
+    border-bottom:1px solid rgba(255,213,77,.28);
+    background:linear-gradient(180deg,rgba(255,213,77,.05),transparent 30%);
+  }
+  .grad-badge {
+    font-size:11px; padding:4px 12px; border-radius:12px; white-space:nowrap;
+    background:linear-gradient(90deg,#ffd54d,#ff9a3d); color:#4a2c00; font-weight:700;
+    letter-spacing:1px; box-shadow:0 2px 12px rgba(255,180,60,.4);
+  }
+  .grad-sec .card {
+    background:#1c1526;
+    border:1px solid rgba(255,213,77,.38);
+    box-shadow:0 4px 18px rgba(255,180,60,.14);
+  }
   .grad-sec .sec-title .bar { background:linear-gradient(180deg,#ffd54d,#ff9a3d); height:26px; }
   .grad-sec .sec-title h2 {
     font-size:21px;
@@ -156,7 +171,7 @@
 
 <!-- ④ 私教课毕业照 -->
 <section id="sec-grad" class="grad-sec">
-  <div class="sec-title"><span class="bar"></span><h2>《私教课毕业照》</h2></div>
+  <div class="sec-title"><span class="bar"></span><h2>《私教课毕业照》</h2><span class="grad-badge">⭐ 私教课专属</span></div>
   <p class="sec-sub"><b>私教课</b> · 一对一实战辅导 · 学员毕业合照留念</p>
   <div class="wide" id="w-grad"></div>
 </section>
