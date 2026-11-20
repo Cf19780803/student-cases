@@ -117,6 +117,12 @@
     animation:pulse 1.6s ease-in-out infinite;
   }
   @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
+  .cta-qr {
+    width:180px; border-radius:14px; margin-top:14px; display:block;
+    margin-left:auto; margin-right:auto;
+    box-shadow:0 4px 16px rgba(0,0,0,.3); cursor:pointer;
+  }
+  .cta-tip { font-size:12px !important; margin-top:8px !important; opacity:.8 !important; }
 
   /* ---------- 视频 ---------- */
   .video-wrap { padding:0 14px 14px; }
@@ -193,6 +199,8 @@
     <h3>🔥 下一期《私教课》招生中</h3>
     <p>一对一实战辅导 · 手把手带你跑出真实数据</p>
     <span class="pulse">名额有限 · 报满即止</span>
+    <img class="cta-qr" src="assets/wechat-qr.jpg" alt="微信咨询" onclick="openLB(this.src)">
+    <p class="cta-tip">长按识别二维码 · 添加飞哥微信咨询报名</p>
   </div>
 </section>
 
